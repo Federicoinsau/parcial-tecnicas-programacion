@@ -3,9 +3,11 @@ def reciboMapaYListaDeTuplas(mapa, listaDeTuplas):
     listaResultado = []
     if mapa:
         for fila in mapa:
-            for i,j in enumerate(fila):
-                if j == "b":
-                    listaDeBotes.append(i)
+            for posicion in fila:
+                posicion = list(posicion)
+                if posicion == ["b"]:
+                    posicion = posicion.index("b")
+                    listaDeBotes.append(posicion)
 
     for row in listaDeTuplas:
         row = list(row)
