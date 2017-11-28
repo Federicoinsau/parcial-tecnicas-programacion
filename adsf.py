@@ -1,13 +1,15 @@
-def disparoConMapaYListaDeTuplas(mapa, listaDeTuplas):
+def mapaCambiadoSegunDisparos(mapa, listaDeDisparoRestada):
 
     mapaActualizado = []
 
     if mapa != [] and mapa != [""] and len(mapa) > 1:
         for fila in mapa:
             if not fila.isspace() and len(fila) == len(mapa[1]):
-                for i in range (len(listaDeTuplas)):
-                    if mapa[listaDeTuplas[i][0]][listaDeTuplas[i][1]] == "b":
-                       mapa[listaDeTuplas[i][0]][listaDeTuplas[i][1]] == "."
+                for i in range(len(listaDeDisparoRestada)):
+                    if mapa[listaDeDisparoRestada[i][0]][listaDeDisparoRestada[i][1]] == "b":
+                        mapaNuevo = mapa[listaDeDisparoRestada[i][0]][listaDeDisparoRestada[i][1]] == "."
+                        mapaActualizado.append(mapaNuevo)
+
                     return mapaActualizado
             else:
                 return mapaActualizado
@@ -26,11 +28,11 @@ def restarNumeroDeIndice(listaDeTuplas):
     return listaDeDisparosRestada
 
 
-def sumarNumeroDeIndice(listaSobrevivientes):
+def sumarNumeroDeIndice(listaDeBotesSobrevivientes):
 
     listaSobrevivientesSumada = []
 
-    for row in listaSobrevivientes:
+    for row in listaDeBotesSobrevivientes:
         row = list(row)
         row[0] = row[0] + 1
         row[1] = row[1] + 1
@@ -44,10 +46,18 @@ def botesSobrevivientes(mapaActualizado):
             if mapaActualizado[i][j] == "b":
                 t = (i,j)
                 listaDeBotesSobrevivientes.append(t)
-        return listaSobrevivientes
+        return listaDeBotesSobrevivientes
 
 def ejercicio2(mapa,listaDeTuplas):
-    return disparoConMapaYListaDeTuplas(mapa, listaDeTuplas)
+    restarNumeroDeIndice(listaDeTuplas)
+    listaDeDisparosRestada = restarNumeroDeIndice(listaDeTuplas)
+    mapaCambiadoSegunDisparos(mapa, listaDeDisparosRestada)
+    mapaActualizado = mapaCambiadoSegunDisparos(mapa, listaDeDisparosRestada)
+    botesSobrevivientes(mapaActualizado)
+    listaDeBotesSobrevivientes = botesSobrevivientes(mapaActualizado)
+    sumarNumeroDeIndice(listaDeBotesSobrevivientes)
+    listaSobrevivientesSumada = sumarNumeroDeIndice(listaDeBotesSobrevivientes)
+    return listaSobrevivientesSumada
 
 posicionesDeDisparosDePrueba = [(1,1),(3,4),(1,3),(4,5)]
 
