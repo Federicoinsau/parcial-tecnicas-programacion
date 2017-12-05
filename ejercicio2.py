@@ -73,7 +73,7 @@ def ejercicio2(mapa,listaDeTuplas):
 
 posicionesDeDisparosDePrueba = [(1,1),(3,4),(1,3),(4,5)]
 
-#assert (ejercicio2([],posicionesDeDisparosDePrueba) == [])
+assert (ejercicio2([],posicionesDeDisparosDePrueba) == [])
 #assert (ejercicio2([""],posicionesDeDisparosDePrueba) == [])
 #assert (ejercicio2(["      "],posicionesDeDisparosDePrueba) == [])
 #assert (ejercicio2(["soy NO valido"],posicionesDeDisparosDePrueba) == [])
