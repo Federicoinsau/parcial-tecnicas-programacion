@@ -1,4 +1,4 @@
-def reciboMapaYListaDeTuplas(mapa, listaDeTuplas):
+def encontrarBotesEnMapa(mapa):
 
     listaResultado = []
 
@@ -6,27 +6,45 @@ def reciboMapaYListaDeTuplas(mapa, listaDeTuplas):
         for fila in mapa:
             if len(fila) == len(mapa[0]):
                 if not fila.isspace():
-                    for posicion in fila:
-                        if posicion == 'b' or posicion == '.':
-                            if posicion == 'b':
-                                posicion = fila.index('b')
-                                posicionnueva = posicion
-                                listaResultado.append(posicionnueva)
-                        else:
-                            return listaResultado
+                    letra = 'b'
+                    posicion = ([pos for pos, char in enumerate(fila) if char == letra])
+                    posicionnueva = posicion
+                    listaResultado.append(posicionnueva)
+
+
                 else:
                     return listaResultado
             else:
                 return listaResultado
+        return listaResultado
     else:
         return listaResultado
 
+def restoListaDeTuplas(listaDeTuplas):
 
+    listaDeDisparosRestada = []
 
+    for row in listaDeTuplas:
+        row = list(row)
+        row[0] = row[0] - 1
+        row[1] = row[1] - 1
+        listaDeDisparosRestada.append(row)
+    return listaDeDisparosRestada
+
+def comparoGolpes(listaResultado,listaDeDisparosRestada):
+
+    disparos = set(listaDeDisparosRestada)
+    barcos = listaResultado
+    for x in barcos if x in disparos
 
 
 def ejercicio2(mapa,listaDeTuplas):
-    return reciboMapaYListaDeTuplas(mapa, listaDeTuplas)
+    listaResultado = encontrarBotesEnMapa(mapa)
+    listaDeDisparosRestada = restoListaDeTuplas(listaDeTuplas)
+    comparoGolpes(listaResultado,listaDeDisparosRestada)
+
+
+    return
 
 posicionesDeDisparosDePrueba = [(1,1),(3,4),(1,3),(4,5)]
 
