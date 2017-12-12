@@ -11,7 +11,6 @@ def encontrarBotesEnMapa(mapa):
                     posicionnueva = posicion
                     listaResultado.append(posicionnueva)
 
-
                 else:
                     return listaResultado
             else:
@@ -32,12 +31,17 @@ def restoListaDeTuplas(listaDeTuplas):
     return listaDeDisparosRestada
 
 def comparoGolpes(listaResultado,listaDeDisparosRestada):
+    ele = []
+    listaResultado.remove([])
 
-    disparos = set(listaDeDisparosRestada)
+    disparos = listaDeDisparosRestada
     barcos = listaResultado
-    for x in barcos if x in disparos
-
-
+    for x in barcos:
+        for n in disparos:
+            if x == n:
+                    ele.append(x)
+            else:
+                continue
 def ejercicio2(mapa,listaDeTuplas):
     listaResultado = encontrarBotesEnMapa(mapa)
     listaDeDisparosRestada = restoListaDeTuplas(listaDeTuplas)
